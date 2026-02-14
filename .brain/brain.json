@@ -1,0 +1,86 @@
+{
+    "meta": {
+        "schema_version": "1.1.0",
+        "awf_version": "3.3.0"
+    },
+    "project": {
+        "name": "Giám Sát Tổ Ấm - NHÀ QUÊ",
+        "type": "Construction Management App",
+        "status": "Production Ready (Phase 8 Completed)"
+    },
+    "tech_stack": {
+        "frontend": {
+            "framework": "React 18",
+            "build_tool": "Vite",
+            "language": "TypeScript"
+        },
+        "styling": {
+            "framework": "Tailwind CSS v3.4",
+            "design_system": "Glassmorphism"
+        },
+        "state_management": {
+            "library": "Zustand",
+            "persistence": "localStorage"
+        },
+        "ai": {
+            "provider": "Google Gemini API",
+            "features": [
+                "Image Analysis",
+                "Chatbot",
+                "Progress Prediction"
+            ]
+        }
+    },
+    "database_schema": {
+        "summary": "Local-first architecture using Zustand + localStorage. No SQL database.",
+        "tables": [
+            {
+                "name": "project",
+                "description": "Global project settings (name, budget, start date)"
+            },
+            {
+                "name": "timelineSteps",
+                "description": "Construction phases status (completed/current/pending)"
+            },
+            {
+                "name": "dailyPhotos",
+                "description": "Photo log with AI metadata (tag, color, phase)"
+            },
+            {
+                "name": "financeItems",
+                "description": "Invoices and expenses tracking"
+            },
+            {
+                "name": "contractors",
+                "description": "Directory of workers and architects"
+            },
+            {
+                "name": "documents",
+                "description": "Uploaded PDF/Image files database"
+            },
+            {
+                "name": "issues",
+                "description": "Defects and tasks tracker"
+            },
+            {
+                "name": "aiLogs",
+                "description": "History of AI interactions and analyses"
+            }
+        ]
+    },
+    "business_rules": [
+        "Timeline steps automatically calculate total progress.",
+        "Finance items total = quantity * unitPrice.",
+        "AI analysis is triggered on-demand for uploaded photos.",
+        "Data export includes all state slices for backup."
+    ],
+    "features": [
+        "Dynamic Dashboard with AI insights",
+        "Timeline management with phase tracking",
+        "Finance management with auto-calculation",
+        "Photo gallery with Lightbox and Phase filtering",
+        "Contractor and Document management",
+        "Issue Tracker for construction defects",
+        "Import/Export data for backup and device transfer"
+    ]
+}

@@ -15,21 +15,24 @@ export const DAILY_PHOTOS: DailyPhoto[] = [
     url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuAGFLMlDZ9Of4Ob8GVyFSvoeA64mPPjmXLH037QAdbdOmZ1o0RiBzuxqprBaU4T3eqjnS44wlV7lXW8BUmSbMtKlFV8iWzTxmlt-HqxIYMQhxnOqE0GzIlLDSDHZYqbeL_FrIM_AnTyb7GPWuxUOyOt4KRJdWAj_houlkeObWPHGhpuW-YtsD3VzG0usScdRR6sq5kKGKxysD3W_pnhDYFpoApA4ygG-LXoE4awRc6rLyDtpELt5t7oXzI7xJjtDQNVAxhRE7yjLEI',
     timestamp: '14/05/2024 - Sáng',
     aiTag: 'AI: Hoàn thiện 75% tường bao',
-    aiColor: 'bg-green-400'
+    aiColor: 'bg-green-400',
+    phase: 'Xây tường T1'
   },
   {
     id: '2',
     url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBb-u9cefuK4RmgwZmQNqlIJfaKLiKQj9I7FjzovSTrZbXfiD_Clzl-9iRTJ3rrnhPeInlgEXoC1fd5B1duUd2cS6QwFF565aBp0nYVZt5XD0M7Y2cZnbboPcP4Rv82fv-AmPq7ZL5oOGMsLvgVXuf8h140xoeyXSL6jdrWPf9Jt2RSE7SwmHJnvchYrsnya-PD4JZSbg5rSQ7LBX85CClHF1NBoLIhz9tW9lDlgts4yCQovNKmdlkiC9BdR3niOR_vRRMskUt4qtw',
     timestamp: '13/05/2024 - Chiều',
     aiTag: 'AI: Đã nhập thêm 5000 gạch',
-    aiColor: 'bg-blue-400'
+    aiColor: 'bg-blue-400',
+    phase: 'Xây tường T1'
   },
   {
     id: '3',
     url: 'https://lh3.googleusercontent.com/aida-public/AB6AXuBbSXKodhdJh2xmk7Elk0pegmIoQoE0Z9w94iZfmTbru1ODniv4cCePFqg3qqJHgH1_VqkVgSh5sI6RAjStPlSXLCWqie7edABOrWIcKFhfrAQQwKUAfr0Q_EpVGJ3MwlWDzAXl9xqR-L7jfmpP2hNBjGnzanwLXBEkiNRMexNnZ-BujYJ3RUfmyrz9JUIpH92eLitkrnS6ycO3MQM25QtzDIcOB9zxoDLnkBoRa8XLGepKAJ2sTo4fPmhkCnvtJhSV_EiEf40DrWY',
     timestamp: '12/05/2024 - Sáng',
     aiTag: 'AI: Đang lắp đặt cốt thép sàn',
-    aiColor: 'bg-orange-400'
+    aiColor: 'bg-orange-400',
+    phase: 'Ép cọc & Móng'
   }
 ];
 

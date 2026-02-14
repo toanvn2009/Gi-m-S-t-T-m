@@ -1,0 +1,16 @@
+[00:28] START phase-01-core-infrastructure (MVP mode)
+[00:28] DONE task: Install Zustand + @google/genai (81 packages)
+[00:29] DONE task: Create Zustand store with persist middleware (store/useStore.ts)
+[00:29] DONE task: Implement localStorage persistence (partialize: project, timeline, photos, finance, aiLogs)
+[00:30] DONE task: Create Gemini API service module (services/geminiService.ts — analyzeImage, chat, predict)
+[00:30] DONE task: Create notification/toast system (components/Toast.tsx — auto-dismiss 4s)
+[00:31] DONE task: Connect App.tsx to Zustand store (replaced useState with useStore)
+[00:32] VERIFIED: App renders correctly, navigation works, no console errors
+[00:32] END phase-01-core-infrastructure ✅
+
+[00:45] START phase-02-dynamic-dashboard
+[00:50] DONE task: Connect DashboardOverview to Zustand
+[00:55] DONE task: Create UpdateProjectModal & FileUpload
+[01:00] DONE task: Integrate AI Analysis (geminiService)
+[01:05] VERIFIED: Build passed. Manual verification pending.
+[01:05] END phase-02-dynamic-dashboard ✅

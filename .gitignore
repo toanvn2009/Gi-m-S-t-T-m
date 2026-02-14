@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Brain (local session state)
+.brain/session.json
+.brain/preferences.json
+.brain/handover.md

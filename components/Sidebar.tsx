@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { ViewType } from '../types';
+import { useStore } from '../store/useStore';
 
 interface SidebarProps {
   currentView: ViewType;
@@ -10,13 +11,22 @@ interface SidebarProps {
 }
 
 const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isOpen, onClose }) => {
+  const project = useStore((s) => s.project);
+  const timelineSteps = useStore((s) => s.timelineSteps);
+
   const navItems = [
     { id: ViewType.OVERVIEW, label: 'Tổng quan', icon: 'dashboard' },
     { id: ViewType.PROGRESS, label: 'Tiến độ', icon: 'timeline' },
     { id: ViewType.FINANCE, label: 'Chi phí', icon: 'payments' },
     { id: ViewType.CONTRACTORS, label: 'Nhà thầu', icon: 'engineering' },
     { id: ViewType.DOCUMENTS, label: 'Tài liệu', icon: 'description' },
+    { id: ViewType.ISSUES, label: 'Lỗi thi công', icon: 'bug_report' },
   ];
+
+  // Calculate dynamic progress
+  const completedSteps = timelineSteps.filter(s => s.status === 'completed').length;
+  const totalSteps = timelineSteps.length;
+  const progressPercent = totalSteps > 0 ? Math.round((completedSteps / totalSteps) * 100) : 0;
 
   return (
     <aside className={`
@@ -28,12 +38,14 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isOpen, on
           <div className="bg-primary size-10 rounded-lg flex items-center justify-center text-white">
             <span className="material-symbols-outlined">home_work</span>
           </div>
-          <div>
+          <div className="min-w-0">
             <h1 className="font-bold text-lg leading-tight">Tổ Ấm</h1>
-            <p className="text-xs text-primary font-semibold uppercase tracking-wider">Nhà Phố Quận 2</p>
+            <p className="text-[10px] text-primary font-semibold uppercase tracking-wider truncate" title={project.name}>
+              {project.name}
+            </p>
           </div>
         </div>
-        <button 
+        <button
           onClick={onClose}
           className="lg:hidden p-2 text-slate-400 hover:text-slate-600 rounded-lg hover:bg-slate-50"
         >
@@ -46,11 +58,10 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isOpen, on
           <button
             key={item.id}
             onClick={() => onViewChange(item.id)}
-            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors font-medium text-sm sm:text-base ${
-              currentView === item.id 
-                ? 'bg-primary text-white shadow-md shadow-primary/20' 
-                : 'text-slate-600 hover:bg-slate-50'
-            }`}
+            className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-lg transition-colors font-medium text-sm sm:text-base ${currentView === item.id
+              ? 'bg-primary text-white shadow-md shadow-primary/20'
+              : 'text-slate-600 hover:bg-slate-50'
+              }`}
           >
             <span className={`material-symbols-outlined ${currentView === item.id ? 'fill' : ''}`}>
               {item.icon}
@@ -64,17 +75,19 @@ const Sidebar: React.FC<SidebarProps> = ({ currentView, onViewChange, isOpen, on
         <div className="bg-primary/5 p-4 rounded-xl">
           <div className="flex justify-between items-center mb-2">
             <span className="text-[10px] font-bold text-primary uppercase tracking-wider">Tiến độ</span>
-            <span className="text-xs font-bold text-primary">35%</span>
+            <span className="text-xs font-bold text-primary">{progressPercent}%</span>
           </div>
           <div className="w-full bg-primary/20 rounded-full h-1.5 overflow-hidden">
-            <div className="bg-primary h-full rounded-full transition-all duration-1000" style={{ width: '35%' }}></div>
+            <div
+              className="bg-primary h-full rounded-full transition-all duration-1000"
+              style={{ width: `${progressPercent}%` }}
+            ></div>
           </div>
         </div>
-        <button 
+        <button
           onClick={() => onViewChange(ViewType.SETTINGS)}
-          className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${
-            currentView === ViewType.SETTINGS ? 'text-primary font-bold' : 'text-slate-500 hover:bg-slate-50'
-          }`}
+          className={`w-full flex items-center gap-3 px-3 py-2 rounded-lg transition-colors text-sm ${currentView === ViewType.SETTINGS ? 'text-primary font-bold' : 'text-slate-500 hover:bg-slate-50'
+            }`}
         >
           <span className="material-symbols-outlined">settings</span>
           <span>Cài đặt</span>
